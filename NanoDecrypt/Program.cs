@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualBasic.CompilerServices;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -57,9 +58,19 @@ namespace NanoDecrypt
 
         static void Main(string[] args)
         {
+            bool debug = true;
+
             if (args.Length < 2)
             {
-                PrintHelp();
+                if (!debug)
+                {
+                    PrintHelp();
+                }
+                else
+                {
+                    ProcessFile(@"C:\Users\vladimir\source\repos\NanoDump\NanoDecrypt\bin\Debug\Nano_core_dumped.exe", @"C:\Users\vladimir\source\repos\NanoDump\NanoDecrypt\bin\Debug\");
+                }
+                
             }
             else
             {
@@ -69,9 +80,9 @@ namespace NanoDecrypt
 
         static void PrintHelp()
         {
-            Console.WriteLine("> NanoDecrypt");
+            Console.WriteLine("> NanoDump");
             Console.WriteLine(">> Automatically extract plugins and config from NanoCore");
-            Console.WriteLine(">> @hariomenkel / https://github.com/hariomenkel/NanoDecrypt");
+            Console.WriteLine(">> @hariomenkel / https://github.com/hariomenkel/NanoDump");
             Console.WriteLine("Usage: " + System.AppDomain.CurrentDomain.FriendlyName + " <Input File> <Output Folder>");
             Console.WriteLine("Example: " + AppDomain.CurrentDomain.FriendlyName + @" NanoCore.exe C:\Users\Vladimir\Desktop\NanoCoreDump");
         }
@@ -119,6 +130,7 @@ namespace NanoDecrypt
                 num++;
                 Array.Copy(array, num, configuration, 0, configuration.Length);
 
+                /*
                 Configuration c = new Configuration();
                 c.BuildTime = (DateTime)configuration[1];
                 Log(output, "BuildTime: " + c.BuildTime.ToString());
@@ -180,7 +192,19 @@ namespace NanoDecrypt
                 Log(output, "PrimaryDnsServer: " + c.PrimaryDnsServer.ToString());
                 c.BackupDnsServer = (string)configuration[59];
                 Log(output, "BackupDnsServer: " + c.BackupDnsServer.ToString());
+                */
 
+                var dict = new Dictionary<string, string>();
+
+                int i = 0;
+                while (i < configuration.Length)
+                {
+                    Console.WriteLine(configuration[i].ToString() + ": " + configuration[i + 1].ToString());
+                    dict.Add(configuration[i].ToString(), configuration[i + 1].ToString());
+                    i = i + 2;
+                }
+
+                Log(output, dict);
                 DumpPlugins(plugins, output);
                 Console.WriteLine("Finished!");
             }
@@ -190,7 +214,7 @@ namespace NanoDecrypt
             }            
         }
 
-        static void Log(string path, string message)
+        static void Log(string path, Dictionary<string, string> config)
         {
             string logfilePath = "";
             if (path.EndsWith(@"\"))
@@ -201,13 +225,15 @@ namespace NanoDecrypt
             {
                 logfilePath = path + @"\" + "NanoCore_Config.txt";
             }
-            Console.WriteLine(message);
 
-            using (StreamWriter sw = File.AppendText(logfilePath))
+            var output = JsonConvert.SerializeObject(config);
+
+            using (StreamWriter sw = File.CreateText(logfilePath))
             {
-                sw.WriteLine(message);
-                sw.Close();
-            }
+                JsonSerializer serializer = new JsonSerializer();
+                //serialize object directly into file stream
+                serializer.Serialize(sw, output);
+            }           
         }
 
         static void DumpPlugins(object[] plugins, string path)

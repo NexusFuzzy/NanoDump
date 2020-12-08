@@ -5,3 +5,13 @@ C:\Users\vladimir\source\repos\NanoDecrypt\NanoDecrypt\obj\Debug\NanoDecrypt.csp
 C:\Users\vladimir\source\repos\NanoDecrypt\NanoDecrypt\obj\Debug\NanoDecrypt.csproj.CoreCompileInputs.cache
 C:\Users\vladimir\source\repos\NanoDecrypt\NanoDecrypt\obj\Debug\NanoDecrypt.exe
 C:\Users\vladimir\source\repos\NanoDecrypt\NanoDecrypt\obj\Debug\NanoDecrypt.pdb
+C:\Users\vladimir\Source\Repos\NanoDump\NanoDecrypt\bin\Debug\NanoDecrypt.exe.config
+C:\Users\vladimir\Source\Repos\NanoDump\NanoDecrypt\bin\Debug\NanoDecrypt.exe
+C:\Users\vladimir\Source\Repos\NanoDump\NanoDecrypt\bin\Debug\NanoDecrypt.pdb
+C:\Users\vladimir\Source\Repos\NanoDump\NanoDecrypt\obj\Debug\NanoDecrypt.csprojAssemblyReference.cache
+C:\Users\vladimir\Source\Repos\NanoDump\NanoDecrypt\obj\Debug\NanoDecrypt.csproj.CoreCompileInputs.cache
+C:\Users\vladimir\Source\Repos\NanoDump\NanoDecrypt\obj\Debug\NanoDecrypt.exe
+C:\Users\vladimir\Source\Repos\NanoDump\NanoDecrypt\obj\Debug\NanoDecrypt.pdb
+C:\Users\vladimir\Source\Repos\NanoDump\NanoDecrypt\bin\Debug\Newtonsoft.Json.dll
+C:\Users\vladimir\Source\Repos\NanoDump\NanoDecrypt\bin\Debug\Newtonsoft.Json.xml
+C:\Users\vladimir\Source\Repos\NanoDump\NanoDecrypt\obj\Debug\NanoDecrypt.csproj.CopyComplete
