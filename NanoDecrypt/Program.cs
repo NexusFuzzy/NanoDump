@@ -58,19 +58,9 @@ namespace NanoDecrypt
 
         static void Main(string[] args)
         {
-            bool debug = true;
-
             if (args.Length < 2)
             {
-                if (!debug)
-                {
-                    PrintHelp();
-                }
-                else
-                {
-                    ProcessFile(@"C:\Users\vladimir\source\repos\NanoDump\NanoDecrypt\bin\Debug\Nano_core_dumped.exe", @"C:\Users\vladimir\source\repos\NanoDump\NanoDecrypt\bin\Debug\");
-                }
-                
+                 PrintHelp();
             }
             else
             {
@@ -129,70 +119,6 @@ namespace NanoDecrypt
                 object[] configuration = new object[(int)array[num]];
                 num++;
                 Array.Copy(array, num, configuration, 0, configuration.Length);
-
-                /*
-                Configuration c = new Configuration();
-                c.BuildTime = (DateTime)configuration[1];
-                Log(output, "BuildTime: " + c.BuildTime.ToString());
-                c.Version = (Version)configuration[3];
-                Log(output, "Version: " + c.Version.ToString());
-                c.Mutex = (Guid)configuration[5];
-                Log(output, "Mutex: " + c.Mutex.ToString());
-                c.DefaultGroup = (string)configuration[7];
-                Log(output, "DefaultGroup: " + c.DefaultGroup.ToString());
-                c.PrimaryConnectionHost = (string)configuration[9];
-                Log(output, "PrimaryConnectionHost: " + c.PrimaryConnectionHost.ToString());
-                c.BackupConnectionHost = (string)configuration[11];
-                Log(output, "BackupConnectionHost: " + c.BackupConnectionHost.ToString());
-                c.ConnectionPort = (ushort)configuration[13];
-                Log(output, "ConnectionPort: " + c.ConnectionPort.ToString());
-                c.RunOnStartup = (bool)configuration[15];
-                Log(output, "RunOnStartup: " + c.RunOnStartup.ToString());
-                c.RequestElevation = (bool)configuration[17];
-                Log(output, "RequestElevation: " + c.RequestElevation.ToString());
-                c.BypassUserAccountControl = (bool)configuration[19];
-                Log(output, "BypassUserAccountControl: " + c.BypassUserAccountControl.ToString());
-                c.ClearZoneIdentifier = (bool)configuration[21];
-                Log(output, "ClearZoneIdentifier: " + c.ClearZoneIdentifier.ToString());
-                c.ClearAccessControl = (bool)configuration[23];
-                Log(output, "ClearAccessControl: " + c.ClearAccessControl.ToString());
-                c.SetCriticalProcess = (bool)configuration[25];
-                Log(output, "SetCriticalProcess: " + c.SetCriticalProcess.ToString());
-                c.PreventSystemSleep = (bool)configuration[27];
-                Log(output, "PreventSystemSleep: " + c.PreventSystemSleep.ToString());
-                c.ActivateAwayMode = (bool)configuration[29];
-                Log(output, "ActivateAwayMode: " + c.ActivateAwayMode.ToString());
-                c.EnableDebugMode = (bool)configuration[31];
-                Log(output, "EnableDebugMode: " + c.EnableDebugMode.ToString());
-                c.RunDelay = (int)configuration[33];
-                Log(output, "RunDelay: " + c.RunDelay.ToString());
-                c.ConnectionDelay = (int)configuration[35];
-                Log(output, "ConnectionDelay: " + c.ConnectionDelay.ToString());
-                c.RestartDelay = (int)configuration[37];
-                Log(output, "RestartDelay: " + c.RestartDelay.ToString());
-                c.TimeoutInterval = (int)configuration[39];
-                Log(output, "TimeoutInterval: " + c.TimeoutInterval.ToString());
-                c.KeepAliveTimeout = (int)configuration[41];
-                Log(output, "KeepAliveTimeout: " + c.KeepAliveTimeout.ToString());
-                c.MutexTimeout = (int)configuration[43];
-                Log(output, "MutexTimeOut: " + c.MutexTimeout.ToString());
-                c.LanTimeout = (int)configuration[45];
-                Log(output, "LanTimeout: " + c.LanTimeout.ToString());
-                c.WanTimeout = (int)configuration[47];
-                Log(output, "WanTimeout: " + c.WanTimeout.ToString());
-                c.BufferSize = (int)configuration[49];
-                Log(output, "BufferSize: " + c.BufferSize.ToString());
-                c.MaxPacketSize = (int)configuration[51];
-                Log(output, "MaxPacketSize: " + c.MaxPacketSize.ToString());
-                c.GCThreshold = (int)configuration[53];
-                Log(output, "GCThreshold: " + c.GCThreshold.ToString());
-                c.UseCustomDnsServer = (bool)configuration[55];
-                Log(output, "UseCustomDnsServer: " + c.UseCustomDnsServer.ToString());
-                c.PrimaryDnsServer = (string)configuration[57];
-                Log(output, "PrimaryDnsServer: " + c.PrimaryDnsServer.ToString());
-                c.BackupDnsServer = (string)configuration[59];
-                Log(output, "BackupDnsServer: " + c.BackupDnsServer.ToString());
-                */
 
                 var dict = new Dictionary<string, string>();
 
